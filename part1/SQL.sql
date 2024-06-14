@@ -1,5 +1,9 @@
 PRAGMA foreign_keys = ON;
 
+DROP TABLE favorites;
+DROP TABLE users;
+DROP TABLE dogs;
+
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name TEXT NOT NULL,
@@ -16,7 +20,7 @@ CREATE TABLE favorites (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     dog_id INTEGER NOT NULL,
-    UNIQUE (user_id, dog_id),
+    UNIQUE(user_id, dog_id),
     FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(dog_id) REFERENCES dogs(id)
 );
